@@ -23,7 +23,7 @@ const petsSchema = new Schema(
     },
     photoPet: {
       type: String,
-      // required: true,
+      required: true,
     },
     сomments: {
       type: String,
@@ -31,10 +31,6 @@ const petsSchema = new Schema(
       required: [true, "Your pet need description"],
       minLength: [8, "Min length 8 characters"],
       maxlength: [120, "Max length 120 characters"],
-    },
-    favorite: {
-      type: Boolean,
-      default: false,
     },
     owner: {
       type: Schema.Types.ObjectId,
