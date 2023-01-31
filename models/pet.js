@@ -23,14 +23,14 @@ const petsSchema = new Schema(
     },
     photoPet: {
       type: String,
-      required: true,
+      // required: true,
     },
     сomments: {
       type: String,
-      default: false,
-      required: [true, "Your pet need description"],
-      minLength: [8, "Min length 8 characters"],
-      maxlength: [120, "Max length 120 characters"],
+      // default: false,
+      // required: [true, "Your pet need description"],
+      // minLength: [8, "Min length 8 characters"],
+      // maxlength: [120, "Max length 120 characters"],
     },
     owner: {
       type: Schema.Types.ObjectId,
@@ -44,7 +44,7 @@ const addSchema = Joi.object({
   name: Joi.string().required(),
   dateOfBirth: Joi.date(),
   breed: Joi.string().required(),
-  Comments: Joi.string().required(),
+  сomments: Joi.string().required(),
 });
 
 const updateFavoriteSchema = Joi.object({

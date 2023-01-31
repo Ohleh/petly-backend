@@ -10,8 +10,9 @@ const photoDir = path.join(__dirname, "../../public", "images", "photopets");
 
 const addPet = async (req, res) => {
   const { path: tempUpload, originalname } = req.file;
+  console.log(req.file);
   const { _id: owner } = req.user;
-  const fileName = `${nanoid}_${originalname}`;
+  const fileName = `${nanoid()}_${originalname}`;
 
   const image = await Jimp.read(tempUpload);
   image.resize(182, 182).write(tempUpload);
@@ -26,6 +27,7 @@ const addPet = async (req, res) => {
     ...req.body,
     owner,
     photoPet: photoURL,
+    message: "success",
   });
   res.status(201).json(addNewPet);
 };

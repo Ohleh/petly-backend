@@ -15,18 +15,18 @@ const multerConfig = multer.diskStorage({
   },
 });
 
-const fileFilter = (req, file, cb) => {
-  if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
-    cb(null, true);
-  } else {
-    //reject file
-    cb({ message: "Unsupported file format, please use .jpeg or .png" }, false);
-  }
-};
+// const fileFilter = (req, file, cb) => {
+//   if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
+//     cb(null, true);
+//   } else {
+//     //reject file
+//     cb({ message: "Unsupported file format, please use .jpeg or .png" }, false);
+//   }
+// };
 
 const upload = multer({
   storage: multerConfig,
-  fileFilter: fileFilter,
+  // fileFilter: fileFilter,
 });
 
 module.exports = upload;
